@@ -1,0 +1,22 @@
+<div class="forum-post-container">
+  <h1>MAQE Forum</h1>
+  <div class="timezone">
+    <p>Your current timezone is: Asia/Bangkok</p>
+  </div>
+  <div *ngFor="let post of mergedPosts" class="post-container" [ngClass]="{'highlight': post.author.role === 'Admin'}">
+    <div class="post-header">
+      <img [src]="post.author.avatar_url" alt="Author Avatar" class="avatar">
+      <div class="author-details">
+        <span class="author-name">{{ post.author.name }}</span>
+        <span class="post-date">posted on {{ post.created_at | date:'fullDate' }}, {{ post.created_at | date:'shortTime' }}</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <img [src]="post.image_url" alt="Post Image" class="post-image">
+      <div class="post-text">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body }}</p>
+      </div>
+    </div>
+  </div>
+</div>
